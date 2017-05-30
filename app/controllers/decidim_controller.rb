@@ -1,0 +1,3 @@
+class DecidimController < ApplicationController
+
+end
