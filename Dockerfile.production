@@ -50,6 +50,7 @@ VOLUME $HOME/log
 RUN mkdir -p /etc/my_init.d
 ADD docker/fix_permissions.sh /etc/my_init.d/fix_permissions.sh
 ADD docker/replace_nginx_env_variables.sh /etc/my_init.d/replace_nginx_variables.sh
+ADD docker/sidekiq.sh /etc/my_init.d/sidekiq.sh
 RUN chmod +x /etc/my_init.d/*.sh
 
 RUN chown -R app:app $HOME
