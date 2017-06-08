@@ -2,13 +2,14 @@ source 'https://rubygems.org'
 
 ruby '2.4.0'
 
-gem 'decidim', git: 'https://github.com/AjuntamentdeBarcelona/decidim.git'
+gem 'decidim', git: 'https://github.com/decidim/decidim.git'
+gem 'sidekiq'
 
 gem 'puma', '~> 3.0'
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
-  gem 'decidim-dev', git: 'https://github.com/AjuntamentdeBarcelona/decidim.git'
+  gem 'decidim-dev', git: 'https://github.com/decidim/decidim.git'
   gem 'byebug', platform: :mri
   gem 'pry-byebug'
   gem 'pry-coolline'
