@@ -10,6 +10,10 @@ To update the Decidim installation on this project, first we update Gemfile depe
 
 ## Development
 
+**Requeriments (MacOS)**
+
+GraphicsMagick is required to be installed. For example (with `brew`): `brew install graphicsmagick`
+
 **Development environment installation**
 
 - Install development environment (Ruby 2.4+, PostgreSQL 9.4+). Check the following guide for instructions on different OS: https://gorails.com/setup/
@@ -17,7 +21,6 @@ To update the Decidim installation on this project, first we update Gemfile depe
 - `cd decidim-diba`
 - Install dependencies: `bundle install`
 - Setup database: `bin/rails db:setup`
-- Add fake data to the database: `bin/rails db:seed`
 - Launch development server: `bin/rails server`
 
 More information can be found in the Decidim github repository: https://github.com/decidim/decidim
