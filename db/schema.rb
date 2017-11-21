@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171107144186) do
+ActiveRecord::Schema.define(version: 20171120130226) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -130,6 +130,14 @@ ActiveRecord::Schema.define(version: 20171107144186) do
     t.datetime "updated_at", null: false
     t.index ["categorizable_type", "categorizable_id"], name: "decidim_categorizations_categorizable_id_and_type"
     t.index ["decidim_category_id"], name: "index_decidim_categorizations_on_decidim_category_id"
+  end
+
+  create_table "decidim_census_census_data", force: :cascade do |t|
+    t.bigint "decidim_organization_id"
+    t.string "id_document"
+    t.date "birthdate"
+    t.datetime "created_at", null: false
+    t.index ["decidim_organization_id"], name: "index_decidim_census_census_data_on_decidim_organization_id"
   end
 
   create_table "decidim_comments_comment_votes", id: :serial, force: :cascade do |t|
@@ -607,6 +615,7 @@ ActiveRecord::Schema.define(version: 20171107144186) do
 
   add_foreign_key "decidim_authorizations", "decidim_users"
   add_foreign_key "decidim_categorizations", "decidim_categories"
+  add_foreign_key "decidim_census_census_data", "decidim_organizations"
   add_foreign_key "decidim_identities", "decidim_organizations"
   add_foreign_key "decidim_newsletters", "decidim_users", column: "author_id"
   add_foreign_key "decidim_participatory_process_steps", "decidim_participatory_processes"
