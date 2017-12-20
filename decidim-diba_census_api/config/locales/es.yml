@@ -1,0 +1,43 @@
+es:
+  activerecord:
+    attributes:
+      decidim/organization:
+        diba_census_api_ine: INE
+        diba_census_api_username: Usuario
+        diba_census_api_password: Contraseña
+  activemodel:
+    attributes:
+      diba_census_api_authorization_handler:
+        document_type: Tipo de documento
+        id_document: Número de documento
+        birthdate: Fecha de nacimiento
+  decidim:
+    authorization_handlers:
+      diba_census_api_authorization_handler:
+        name: API de censo de la Diputació de Barcelona
+        document_types:
+          dni: DNI
+          nie: NIE
+          passport: Pasaporte
+    diba_census_api:
+      admin:
+        menu: Configurar API censo
+        api_configs:
+          show:
+            title: Configuración de API de Censo para %{name}
+            edit: Modificar configuración
+          edit:
+            title: Editar la configuración del API de Censo
+            submit: Guardar configuración
+          instructions:
+            title: Debes activar este módulo para continuar
+            body: Para ello debes entrar en administración del sistema y activar "DibaCensusApiAuthorizationHandler" en la lista de autorizaciones disponibles
+          update:
+            success: Configuración guardada
+
+  diba_census_api_authorization:
+    form:
+      date_select:
+        day: Dia
+        month: Mes
+        year: Año

@@ -1,0 +1,21 @@
+
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t('.title', name: @organization.name) %>
+    </h2>
+  </div>
+  <div class="card-section">
+    <p>
+      <strong><%= t('diba_census_api_ine', scope: 'activerecord.attributes.decidim/organization') %>:</strong>
+      <%= @organization.diba_census_api_ine %>&nbsp;
+      <br/>
+      <strong><%= t('diba_census_api_username', scope: 'activerecord.attributes.decidim/organization') %>:</strong>
+      <%= @organization.diba_census_api_username %>&nbsp;
+      <br/>
+      <strong><%= t('diba_census_api_password', scope: 'activerecord.attributes.decidim/organization') %>:</strong>
+      <%= @organization.diba_census_api_password %>&nbsp;
+    </p>
+    <%= link_to t('.edit'), edit_api_config_path, class: 'button' %>
+  </div>
+</div>

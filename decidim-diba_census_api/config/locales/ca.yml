@@ -1,0 +1,43 @@
+ca:
+  activerecord:
+    attributes:
+      decidim/organization:
+        diba_census_api_ine: INE
+        diba_census_api_username: Usuari
+        diba_census_api_password: Contrasenya
+  activemodel:
+    attributes:
+      diba_census_api_authorization_handler:
+        document_type: Tipus de document
+        id_document: Número de document
+        birthdate: Data de naixement
+  decidim:
+    authorization_handlers:
+      diba_census_api_authorization_handler:
+        name: Padró Municipal
+        document_types:
+          dni: 'DNI'
+          nie: 'NIE'
+          passport: 'Passaport'
+    diba_census_api:
+      admin:
+        menu: 'Cens via API'
+        api_configs:
+          show:
+            title: Configuració de la API de la Diputació de Barcelona per %{name}
+            edit: Modificar la configuració
+          edit:
+            title: 'Editar la configuració de la API del cens'
+            submit: 'Desar la configuració'
+          instructions:
+            title: Has d'activar aquest modul abans de continuar
+            body: S'ha d'entrar a l'administrador del sistema i activar "DibaCensusApiAuthorizationHandler" a la llista d'autoritzacions disponibles.
+          update:
+            success: Configuració desada
+
+  diba_census_api_authorization:
+    form:
+      date_select:
+        day: 'Dia'
+        month: 'Mes'
+        year: 'Any'
