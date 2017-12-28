@@ -8,8 +8,9 @@
   <%= form_for @organization, url: api_config_path, html: { class: 'form' } do |f| %>
     <%= f.text_field :diba_census_api_ine %>
     <%= f.text_field :diba_census_api_username %>
-    <%= f.text_field :diba_census_api_password %>
+    <%= f.password_field :diba_census_api_password, value: '' %>
     <%= f.submit t('.submit') %>
+    <%= link_to t('.cancel'), api_config_path, class: 'button secondary' %>
   <% end %>
   </div>
 </div>

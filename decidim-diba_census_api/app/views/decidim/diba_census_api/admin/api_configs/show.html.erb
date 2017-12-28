@@ -14,7 +14,7 @@
       <%= @organization.diba_census_api_username %>&nbsp;
       <br/>
       <strong><%= t('diba_census_api_password', scope: 'activerecord.attributes.decidim/organization') %>:</strong>
-      <%= @organization.diba_census_api_password %>&nbsp;
+      <%= @organization.diba_census_api_password.presence && '*****'  %>&nbsp;
     </p>
     <%= link_to t('.edit'), edit_api_config_path, class: 'button' %>
   </div>

@@ -29,6 +29,7 @@ en:
           edit:
             title: Edit census API configuration
             submit: Save
+            cancel: 'Go Back'
           instructions:
             title: You need to activate the census module for this organization
             body: To do this you must enter system administration and add "CensusAuthorizationHandler" to the list of authorizations

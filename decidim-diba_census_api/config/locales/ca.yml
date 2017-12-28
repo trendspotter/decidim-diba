@@ -29,6 +29,7 @@ ca:
           edit:
             title: 'Editar la configuració de la API del cens'
             submit: 'Desar la configuració'
+            cancel: 'Tornar enrere'
           instructions:
             title: Has d'activar aquest modul abans de continuar
             body: S'ha d'entrar a l'administrador del sistema i activar "DibaCensusApiAuthorizationHandler" a la llista d'autoritzacions disponibles.
