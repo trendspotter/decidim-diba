@@ -41,7 +41,7 @@ class DibaCensusApiAuthorizationHandler < Decidim::AuthorizationHandler
   end
 
   def unique_id
-    census_for_user.id_document
+    census_for_user&.id_document
   end
 
   def census_for_user
@@ -70,9 +70,13 @@ class DibaCensusApiAuthorizationHandler < Decidim::AuthorizationHandler
   end
 
   def api_config
-    { ine: user.organization.diba_census_api_ine,
-      username: user.organization.diba_census_api_username,
-      password: user.organization.diba_census_api_password }
+    { ine: organization.diba_census_api_ine,
+      username: organization.diba_census_api_username,
+      password: organization.diba_census_api_password }
+  end
+
+  def organization
+    current_organization || user.try(:organization)
   end
 
 end

@@ -14,7 +14,7 @@ es:
   decidim:
     authorization_handlers:
       diba_census_api_authorization_handler:
-        name: API de censo de la Diputació de Barcelona
+        name: Padrón Municipal
         document_types:
           dni: DNI
           nie: NIE

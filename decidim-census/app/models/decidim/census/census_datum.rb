@@ -2,7 +2,8 @@ module Decidim
   module Census
     class CensusDatum < ApplicationRecord
 
-      belongs_to :organization, foreign_key: :decidim_organization_id, class_name: 'Decidim::Organization'
+      belongs_to :organization, foreign_key: :decidim_organization_id,
+                                class_name: 'Decidim::Organization'
 
       # An organzation scope
       def self.inside(organization)

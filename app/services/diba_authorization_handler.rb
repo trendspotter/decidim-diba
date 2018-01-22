@@ -18,6 +18,7 @@ class DibaAuthorizationHandler < DibaCensusApiAuthorizationHandler
     @csv_handler ||= CensusAuthorizationHandler.new(user: user,
                                                     id_document: id_document,
                                                     birthdate: birthdate)
+                                               .with_context(context)
   end
 
 end

@@ -35,12 +35,16 @@ class CensusAuthorizationHandler < Decidim::AuthorizationHandler
   end
 
   def unique_id
-    census_for_user.id_document
+    census_for_user&.id_document
   end
 
   def census_for_user
     @census_for_user ||= Decidim::Census::CensusDatum
-                         .search_id_document(user.organization, id_document)
+                         .search_id_document(organization, id_document)
+  end
+
+  def organization
+    current_organization || user&.organization
   end
 
 end
