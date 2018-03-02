@@ -1,8 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'decidim-census', path: '../decidim-census'
+gem 'decidim-age_action_authorization', path: '../decidim-age_action_authorization'
 
-# Declare your gem's dependencies in decidim-censuses.gemspec.
-# Bundler will treat runtime dependencies like base dependencies, and
-# development dependencies will be added by default to the :development group.
 gemspec
