@@ -11,3 +11,9 @@ en:
         name: Municipality Census
         explanation: Authorize your user account against the Municipality Census
         type: Combined
+        fields:
+          birthdate: Date of birth
+    features:
+      proposals:
+        actions:
+          withdraw: Withdraw

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # frozen_string_literal: true
 
 require 'extensions/workflow_manifest_extension'
@@ -12,6 +11,7 @@ Decidim.configure do |config|
 
   Decidim::Verifications.register_workflow(:diba_authorization_handler) do |auth|
     auth.form = 'DibaAuthorizationHandler'
+    auth.action_authorizer = 'Decidim::AgeActionAuthorization::Authorizer'
   end
 
   Decidim::Verifications::WorkflowManifest.prepend(WorkflowManifestExtension)

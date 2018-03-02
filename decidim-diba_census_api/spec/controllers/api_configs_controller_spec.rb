@@ -10,7 +10,7 @@ RSpec.describe Decidim::DibaCensusApi::Admin::ApiConfigsController,
 
   let(:organization) do
     FactoryBot.create :organization,
-                       available_authorizations: ['diba_census_api_authorization_handler']
+                      available_authorizations: ['diba_census_api_authorization_handler']
   end
 
   let(:user) do

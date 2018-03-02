@@ -1,9 +1,17 @@
 PATH
+  remote: ../decidim-age_action_authorization
+  specs:
+    decidim-age_action_authorization (0.9.3)
+      decidim (= 0.9.3)
+      rails (~> 5.1.4)
+
+PATH
   remote: .
   specs:
     decidim-census (0.9.3)
       decidim (= 0.9.3)
       decidim-admin (= 0.9.3)
+      decidim-age_action_authorization (= 0.9.3)
       rails (~> 5.1.4)
       virtus-multiparams (~> 0.1.1)
 
@@ -85,7 +93,6 @@ GEM
       json
       simplecov
       url
-    coderay (1.1.2)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
     coffee-rails (4.2.2)
@@ -401,12 +408,6 @@ GEM
     premailer-rails (1.10.1)
       actionmailer (>= 3, < 6)
       premailer (~> 1.7, >= 1.7.9)
-    pry (0.11.3)
-      coderay (~> 1.1.0)
-      method_source (~> 0.9.0)
-    pry-byebug (3.6.0)
-      byebug (~> 10.0)
-      pry (~> 0.10)
     public_suffix (3.0.2)
     puma (3.11.2)
     rack (2.0.4)
@@ -584,10 +585,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  decidim-age_action_authorization!
   decidim-census!
   decidim-dev (= 0.9.3)
   faker
-  pry-byebug
 
 BUNDLED WITH
    1.16.1

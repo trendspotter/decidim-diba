@@ -1,17 +1,15 @@
 PATH
-  remote: ../decidim-census
+  remote: ../decidim-age_action_authorization
   specs:
-    decidim-census (0.9.3)
+    decidim-age_action_authorization (0.9.3)
       decidim (= 0.9.3)
-      decidim-admin (= 0.9.3)
       rails (~> 5.1.4)
-      virtus-multiparams (~> 0.1.1)
 
 PATH
   remote: .
   specs:
     decidim-diba_census_api (0.9.3)
-      decidim-census (= 0.9.3)
+      decidim-age_action_authorization (= 0.9.3)
       decidim-core (= 0.9.3)
       savon (~> 2.11.2)
       virtus-multiparams (~> 0.1.1)
@@ -607,7 +605,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  decidim-census!
+  decidim-age_action_authorization!
   decidim-dev (= 0.9.3)
   decidim-diba_census_api!
   faker

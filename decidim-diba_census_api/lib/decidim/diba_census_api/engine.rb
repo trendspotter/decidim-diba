@@ -16,9 +16,8 @@ module Decidim
           :diba_census_api_authorization_handler
         ) do |auth|
           auth.form = 'DibaCensusApiAuthorizationHandler'
+          auth.action_authorizer = 'Decidim::AgeActionAuthorization::Authorizer'
         end
-
-        Decidim::ActionAuthorizer.prepend Decidim::Census::Extensions::AuthorizeWithAge
       end
 
     end

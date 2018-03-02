@@ -16,8 +16,8 @@ module Decidim
       initializer 'decidim_census.add_authorization_handlers' do |_app|
         Decidim::Verifications.register_workflow(:census_authorization_handler) do |auth|
           auth.form = 'CensusAuthorizationHandler'
+          auth.action_authorizer = 'Decidim::AgeActionAuthorization::Authorizer'
         end
-        Decidim::ActionAuthorizer.prepend Decidim::Census::Extensions::AuthorizeWithAge
       end
 
     end
