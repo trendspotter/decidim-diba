@@ -11,3 +11,9 @@ ca:
         name: 'Padró municipal'
         explanation: Autoritza el teu compte d'usuari contra el Padró Municipal
         type: 'Combinat'
+        fields:
+          birthdate: Data de naixement
+    features:
+      proposals:
+        actions:
+          withdraw: Retirar

@@ -11,3 +11,9 @@ es:
         name: Padrón Municipal
         explanation: Autoriza tu cuenta de usuario contra el Padrón Municipal
         type: Combinado
+        fields:
+          birthdate: Fecha de nacimiento
+    features:
+      proposals:
+        actions:
+          withdraw: Retirar

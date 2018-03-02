@@ -35,6 +35,7 @@ ADD Gemfile Gemfile
 ADD Gemfile.lock Gemfile.lock
 ADD decidim-census decidim-census
 ADD decidim-diba_census_api decidim-diba_census_api
+ADD decidim-age_action_authorization decidim-age_action_authorization
 RUN bundle install --without development test
 
 # Add the nginx site and config

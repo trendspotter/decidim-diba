@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 ruby '2.4.2'
 
 gem 'decidim', '~> 0.9.3'
+gem 'decidim-age_action_authorization', path: 'decidim-age_action_authorization'
 gem 'decidim-census', path: 'decidim-census'
 gem 'decidim-diba_census_api', path: 'decidim-diba_census_api'
 
