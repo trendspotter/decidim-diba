@@ -17,3 +17,11 @@ ca:
       proposals:
         actions:
           withdraw: Retirar
+  devise:
+    failure:
+      admin:
+        invalid: El nom d'usuari o el password no són vàlids.
+        not_found_in_database: El nom d'usuari o el password no són vàlids.
+      user:
+        invalid: Correu electrónic o contrasenya no vàlids.
+        not_found_in_database: Correu electrónic o contrasenya no vàlids.

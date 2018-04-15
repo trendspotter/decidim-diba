@@ -13,10 +13,10 @@ Warden::Strategies.add(:ldap_authenticatable) do
       password: password
     )
 
-    return fail unless ldap_entry
+    return fail(:ldap_invalid) unless ldap_entry
 
     user = find_or_create_user(ldap_entry)
-    user.valid? ? success!(user) : fail
+    user.valid? ? success!(user) : fail(:ldap_invalid)
   end
 
   private

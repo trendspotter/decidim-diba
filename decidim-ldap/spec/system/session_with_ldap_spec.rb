@@ -57,7 +57,7 @@ describe 'Session with LDAP', type: :system do
     end
 
     within '.flash' do
-      expect(page).to have_content('Failed')
+      expect(page).to have_content('Invalid username or password')
     end
   end
 end

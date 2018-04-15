@@ -38,7 +38,9 @@ module Decidim
       end
 
       initializer 'decidim_ldap.organization_with_ldap' do
-        Decidim::Organization.include Decidim::Ldap::Extensions::OrganizationWithLdap
+        config.to_prepare do
+          Decidim::Organization.include Decidim::Ldap::Extensions::OrganizationWithLdap
+        end
       end
 
       initializer 'decidim_ldap.devise_with_ldap' do

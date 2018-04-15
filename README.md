@@ -41,6 +41,15 @@ Decidim is using the
 emails sent in the development environment you can do it by visiting the
 https://localhost:3000/letter_opener URL.
 
+**Testing LDAP integration in development**
+
+To launch a development ldap server, you can use:
+
+`rake ldap:server`
+
+You can find a sample LDAP configuration in: `decidim-ldap/spec/factories.rb` and a list
+of users inside `decidim-ldap/lib/ladle/default.ldif`
+
 **Specific issues**
 
 * The translations are available only in catalan, spanish and english.

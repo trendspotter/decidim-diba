@@ -14,6 +14,10 @@ en:
         name_field: 'Name field'
         password_field: 'Password field'
         organization: 'Organization'
+  devise:
+    failure:
+      user:
+        ldap_invalid: Invalid username or password
   decidim:
     ldap:
       menu:

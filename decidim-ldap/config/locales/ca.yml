@@ -14,6 +14,10 @@ ca:
         name_field: 'Camp de nom'
         password_field: 'Camp de password'
         organization: 'Organització'
+  devise:
+    failure:
+      user:
+        ldap_invalid: Nom d'usuari o contrasenya no vàlids.
   decidim:
     ldap:
       menu:
