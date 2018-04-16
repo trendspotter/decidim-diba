@@ -23,5 +23,5 @@ ca:
         invalid: El nom d'usuari o el password no són vàlids.
         not_found_in_database: El nom d'usuari o el password no són vàlids.
       user:
-        invalid: Correu electrónic o contrasenya no vàlids.
-        not_found_in_database: Correu electrónic o contrasenya no vàlids.
+        invalid: Correu electrònic o contrasenya no vàlids.
+        not_found_in_database: Correu electrònic o contrasenya no vàlids.
