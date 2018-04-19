@@ -20,7 +20,7 @@ module Decidim
         end
 
         def authentication_strategy
-          return :ldap_authenticatable if current_organization.ldap_configuration.present?
+          return :ldap_authenticatable if current_organization.ldap?
           :database_authenticatable
         end
       end

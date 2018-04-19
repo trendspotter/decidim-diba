@@ -5,11 +5,11 @@ module Decidim
         extend ActiveSupport::Concern
 
         included do
-          has_one :ldap_configuration
+          has_many :ldap_configurations
         end
 
         def ldap?
-          ldap_configuration.present?
+          ldap_configurations.any?
         end
       end
     end

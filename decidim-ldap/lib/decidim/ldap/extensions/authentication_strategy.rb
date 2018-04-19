@@ -5,23 +5,22 @@ Warden::Strategies.add(:ldap_authenticatable) do
   def authenticate!
     return unless params[:user]
 
-    ldap = initialize_ldap
+    ldap_configurations.each do |ldap_configuration|
+      ldap = initialize_ldap(ldap_configuration)
+      ldap_entry = bind_ldap(ldap, ldap_configuration)
 
-    ldap_entry = ldap.bind_as(
-      base: ldap_configuration.dn,
-      filter: ldap_configuration.authentication_query_for_username(username),
-      password: password
-    )
+      next unless ldap_entry
+      user = find_or_create_user(ldap_entry, ldap_configuration)
+      next unless user.valid?
 
-    return fail(:ldap_invalid) unless ldap_entry
-
-    user = find_or_create_user(ldap_entry)
-    user.valid? ? success!(user) : fail(:ldap_invalid)
+      return success!(user)
+    end
+    fail(:ldap_invalid)
   end
 
   private
 
-  def initialize_ldap
+  def initialize_ldap(ldap_configuration)
     Net::LDAP.new.tap do |ldap|
       ldap.host = ldap_configuration.host
       ldap.port = ldap_configuration.port
@@ -31,9 +30,12 @@ Warden::Strategies.add(:ldap_authenticatable) do
     end
   end
 
-  def ldap_configuration
-    @ldap_configuration ||=
-      Decidim::Organization.find(params[:organization_id]).ldap_configuration
+  def bind_ldap(ldap, ldap_configuration)
+    ldap.bind_as(
+      base: ldap_configuration.dn,
+      filter: ldap_configuration.authentication_query_for_username(username),
+      password: password
+    )
   end
 
   def username
@@ -44,14 +46,14 @@ Warden::Strategies.add(:ldap_authenticatable) do
     params[:user][:password]
   end
 
-  def find_or_create_user(ldap_entry)
-    user = find_user(ldap_entry)
+  def find_or_create_user(ldap_entry, ldap_configuration)
+    user = find_user(ldap_entry, ldap_configuration)
     return user if user.present?
 
-    create_user(ldap_entry)
+    create_user(ldap_entry, ldap_configuration)
   end
 
-  def find_user(ldap_entry)
+  def find_user(ldap_entry, ldap_configuration)
     Decidim::User
       .where(email: ldap_field_value(ldap_entry, ldap_configuration.email_field))
       .or(Decidim::User.where(
@@ -60,7 +62,7 @@ Warden::Strategies.add(:ldap_authenticatable) do
       .where(organization: ldap_configuration.organization).first
   end
 
-  def create_user(ldap_entry)
+  def create_user(ldap_entry, ldap_configuration)
     user = Decidim::User.new
     user.email = ldap_field_value(ldap_entry, ldap_configuration.email_field)
     user.nickname = ldap_field_value(ldap_entry, ldap_configuration.username_field)
@@ -79,8 +81,9 @@ Warden::Strategies.add(:ldap_authenticatable) do
     ldap_entry[0][key][0]
   end
 
-  def user_authentication_query
-    ldap_configuration.authentication_query_for_username(username)
+  def ldap_configurations
+    Decidim::Organization.find(params[:organization_id]).ldap_configurations
   end
+
 end
 # rubocop:enable Metrics/BlockLength

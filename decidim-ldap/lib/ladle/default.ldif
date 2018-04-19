@@ -17,6 +17,18 @@ givenName: Alice
 mail: alice@example.net
 uid: Alice
 
+dn: uid=Max,ou=people,dc=example,dc=com
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+userPassword: password1234
+cn: Max Payne
+sn: Payne
+givenName: Max
+mail: max@payne.com
+uid: Max
+
 dn: uid=admin,ou=people,dc=example,dc=com
 objectClass: top
 objectClass: person
