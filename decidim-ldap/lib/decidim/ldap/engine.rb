@@ -50,6 +50,12 @@ module Decidim
           .include(Decidim::Ldap::Extensions::RegistrationsControllerWithLdap)
       end
 
+      initializer 'decidim_ldap.add_ldap_account_authorizations' do |_app|
+        Decidim.configure do |config|
+          config.abilities += ['Decidim::Ldap::Abilities::CurrentUserAbility']
+        end
+      end
+
     end
   end
 end

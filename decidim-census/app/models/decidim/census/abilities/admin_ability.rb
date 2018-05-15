@@ -3,7 +3,7 @@
 module Decidim
   module Census
     module Abilities
-      # Defines the abilities related to surveys for a logged in admin user.
+      # Defines the abilities related to census upload for a logged in admin user.
       # Intended to be used with `cancancan`.
       class AdminAbility < Decidim::Abilities::AdminAbility
 
