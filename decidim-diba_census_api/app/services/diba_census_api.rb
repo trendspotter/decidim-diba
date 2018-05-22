@@ -32,7 +32,7 @@ class DibaCensusApi
     request = CensusApiData.new(document_type, id_document, birthdate)
     response = parse_response(send_request(request))
     encoded_date = extract_encoded_birth_date(response)
-    return if encoded_date.blank?
+    return unless encoded_date.present? && active?(response)
     CensusApiData.new(document_type, id_document, decode_date(encoded_date))
   end
 
@@ -52,8 +52,12 @@ class DibaCensusApi
     Nokogiri::XML(parsed.xpath('//servicioResponse')[0])
   end
 
+  def active?(response)
+    Base64.decode64(response.xpath('//situacionHabitante').text) == 'A'
+  end
+
   def extract_encoded_birth_date(response)
-    response.xpath('//l_habitante/habitante/fechaNacimiento').text
+    response.xpath('//fechaNacimiento').text
   end
 
   def request_body(request)
@@ -83,7 +87,7 @@ class DibaCensusApi
         <ope>
           <apl>PAD</apl>
           <tobj>HAB</tobj>
-          <cmd>DATOSHABITANTES</cmd>
+          <cmd>CONSULTAINDIVIDUAL</cmd>
           <ver>2.0</ver>
         </ope>
         <sec>
