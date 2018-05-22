@@ -45,6 +45,7 @@ class DibaAuthorizationHandler < Decidim::AuthorizationHandler
   def api_handler
     @api_handler ||= DibaCensusApiAuthorizationHandler.new(user: user,
                                                            id_document: id_document,
+                                                           document_type: document_type,
                                                            birthdate: birthdate)
                                                       .with_context(context)
   end
