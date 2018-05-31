@@ -91,9 +91,8 @@ class DibaCensusApi
           <ver>2.0</ver>
         </ope>
         <sec>
-          <cli>ACCEDE</cli>
+          <cli>AOC</cli>
           <org>0</org>
-          <gestor>AOC</gestor>
           <ent>#{@ine}</ent>
           <usu>#{@username}</usu>
           <pwd>#{@password}</pwd>
