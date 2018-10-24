@@ -1,4 +1,4 @@
-FROM phusion/passenger-ruby24:0.9.27
+FROM phusion/passenger-ruby25:0.9.35
 MAINTAINER MarsBased "hola@marsbased.com"
 
 ENV HOME /home/app/decidim-diba

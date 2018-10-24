@@ -1,8 +1,7 @@
-
 module Decidim
   module Census
     module Admin
-      class CensusesController < Decidim::Admin::ApplicationController
+      class CensusesController < Decidim::Census::Admin::ApplicationController
 
         CENSUS_AUTHORIZATIONS = %w[diba_authorization_handler
                                    census_authorization_handler].freeze
@@ -11,12 +10,14 @@ module Decidim
                       unless: :census_authorization_active_in_organization?
 
         def show
-          authorize! :show, CensusDatum
+          enforce_permission_to :create, :census
+
           @status = Status.new(current_organization)
         end
 
         def create
-          authorize! :create, CensusDatum
+          enforce_permission_to :create, :census
+
           if params[:file]
             data = CsvData.new(params[:file].path)
             CensusDatum.insert_all(current_organization, data.values)
@@ -28,7 +29,8 @@ module Decidim
         end
 
         def destroy
-          authorize! :destroy, CensusDatum
+          enforce_permission_to :destroy, :census
+
           CensusDatum.clear(current_organization)
           redirect_to censuses_path, notice: t('.success')
         end

@@ -18,9 +18,8 @@ Gem::Specification.new do |s|
 
   s.files = Dir['{app,config,db,lib,vendor}/**/*', 'Rakefile', 'README.md']
 
+  s.add_dependency 'decidim', s.version
   s.add_dependency 'decidim-age_action_authorization', s.version
-  s.add_dependency 'decidim-core', s.version
-
   s.add_dependency 'savon', '~> 2.11.2'
   s.add_dependency 'virtus-multiparams', '~> 0.1.1'
 
