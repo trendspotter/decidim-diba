@@ -8,11 +8,10 @@ module Decidim
 
         before_action :show_instructions,
                       unless: :census_authorization_active_in_organization?
+        before_action :set_status, on: %i(show create)
 
         def show
           enforce_permission_to :create, :census
-
-          @status = Status.new(current_organization)
         end
 
         def create
@@ -22,10 +21,11 @@ module Decidim
             data = CsvData.new(params[:file].path)
             CensusDatum.insert_all(current_organization, data.values)
             RemoveDuplicatesJob.perform_later(current_organization)
+            @invalid_rows = data.errors
             flash[:notice] = t('.success', count: data.values.count,
                                            errors: data.errors.count)
           end
-          redirect_to censuses_path
+          render :show
         end
 
         def destroy
@@ -39,6 +39,10 @@ module Decidim
 
         def show_instructions
           render :instructions
+        end
+
+        def set_status
+          @status = Status.new(current_organization)
         end
 
         def census_authorization_active_in_organization?
