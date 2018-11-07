@@ -29,6 +29,12 @@ Rails.application.configure do
 
   config.action_mailer.asset_host = ENV['APP_HOST']
 
+  config.action_mailer.delivery_method = if ENV['DISABLE_EMAILS'] == 'true'
+                                           :letter_opener_web
+                                         else
+                                           :smtp
+                                         end
+
   config.action_mailer.smtp_settings = {
     address: Rails.application.secrets.smtp_address,
     port: Rails.application.secrets.smtp_port,
@@ -39,17 +45,6 @@ Rails.application.configure do
     enable_starttls_auto: Rails.application.secrets.smtp_starttls_auto,
     openssl_verify_mode: 'none'
   }
-
-  if Rails.application.secrets.sendgrid
-    config.action_mailer.default_options = {
-      'X-SMTPAPI' => {
-        filters:  {
-          clicktrack: { settings: { enable: 0 } },
-          opentrack:  { settings: { enable: 0 } }
-        }
-      }.to_json
-    }
-  end
 
   # Use a different logger for distributed setups.
   # require 'syslog/logger'

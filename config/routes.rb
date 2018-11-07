@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   mount Decidim::Census::AdminEngine => '/admin/census'
   mount Decidim::DibaCensusApi::AdminEngine => '/admin/census'
 
-  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
+  if Rails.application.config.action_mailer.delivery_method == :letter_opener_web
+    mount LetterOpenerWeb::Engine, at: '/letter_opener'
+  end
 
   resource :system_status, only: :show
 end
