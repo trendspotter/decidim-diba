@@ -24,6 +24,7 @@ class DibaAuthorizationHandler < Decidim::AuthorizationHandler
 
   def censed
     return if diba_handler.valid?
+
     errors.add(:id_document, I18n.t('decidim.census.errors.messages.not_censed'))
   end
 

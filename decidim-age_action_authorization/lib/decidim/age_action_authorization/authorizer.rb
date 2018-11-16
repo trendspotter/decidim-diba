@@ -14,6 +14,7 @@ module Decidim
 
       def valid_metadata?
         return unless authorization
+
         !authorization.metadata['birthdate'].nil?
       end
 
@@ -27,11 +28,10 @@ module Decidim
 
       def minimum_age
         @minimum_age ||= begin
-          Integer(options['edad'].to_s, 10)
-        rescue ArgumentError
-          18
-        end
-        @minimum_age
+                           Integer(options['age'].to_s, 10)
+                         rescue ArgumentError
+                           18
+                         end
       end
 
     end

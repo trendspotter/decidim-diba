@@ -12,6 +12,9 @@ Decidim.configure do |config|
   Decidim::Verifications.register_workflow(:diba_authorization_handler) do |auth|
     auth.form = 'DibaAuthorizationHandler'
     auth.action_authorizer = 'Decidim::AgeActionAuthorization::Authorizer'
+    auth.options do |options|
+      options.attribute :age, type: :string, required: false
+    end
   end
 
   Decidim::Verifications::WorkflowManifest.prepend(WorkflowManifestExtension)

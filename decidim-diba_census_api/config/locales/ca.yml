@@ -17,6 +17,9 @@ ca:
         name: Padró Municipal
         explanation: Autoritza el teu compte d'usuari contra el Padró Municipal
         type: API
+        fields:
+          birthdate: Data de naixement
+          age: Edat mínima
         document_types:
           dni: 'DNI'
           nie: 'NIE'

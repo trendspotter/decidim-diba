@@ -18,6 +18,7 @@ en:
         type: Excel
         fields:
           birthdate: Birthdate
+          age: 'Minimum age'
     census:
       errors:
         messages:

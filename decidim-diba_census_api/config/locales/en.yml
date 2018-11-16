@@ -17,6 +17,9 @@ en:
         name: Municipality Census
         explanation: Authorize your user account against the Municipality Census
         type: API
+        fields:
+          birthdate: Birth date
+          age: Minimum age
         document_types:
           dni: DNI
           nie: NIE

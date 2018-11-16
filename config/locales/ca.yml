@@ -6,6 +6,13 @@ ca:
         id_document: Número de document
         birthdate: Data de naixement
   decidim:
+    verifications:
+      authorizations:
+        first_login:
+            actions:
+              diba_authorization_handler: 'Padró municipal'
+              census_authorization_handler: 'Padró municipal'
+              diba_census_api_authorization_handler: 'Padró municipal'
     authorization_handlers:
       diba_authorization_handler:
         name: 'Padró municipal'
@@ -13,6 +20,7 @@ ca:
         type: 'Combinat'
         fields:
           birthdate: Data de naixement
+          age: 'Edat mínima'
     features:
       proposals:
         actions:

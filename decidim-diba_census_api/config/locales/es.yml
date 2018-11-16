@@ -17,6 +17,9 @@ es:
         name: Padrón Municipal
         explanation: Autoriza tu cuenta de usuario contra el Padrón Municipal
         type: API
+        fields:
+          birthdate: Fecha de nacimiento
+          age: Edad mínima
         document_types:
           dni: DNI
           nie: NIE

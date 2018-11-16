@@ -6,6 +6,13 @@ en:
         id_document: Identity document
         birthdate: Date of birth
   decidim:
+    verifications:
+      authorizations:
+        first_login:
+            actions:
+              diba_authorization_handler: 'Municipality Census'
+              census_authorization_handler: 'Municipality Census'
+              diba_census_api_authorization_handler: 'Municipality Census'
     authorization_handlers:
       diba_authorization_handler:
         name: Municipality Census
@@ -13,6 +20,7 @@ en:
         type: Combined
         fields:
           birthdate: Date of birth
+          age: Minimum age
     features:
       proposals:
         actions:

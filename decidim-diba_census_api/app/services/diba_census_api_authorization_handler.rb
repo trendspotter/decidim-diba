@@ -37,11 +37,13 @@ class DibaCensusApiAuthorizationHandler < Decidim::AuthorizationHandler
   # Checks if the id_document belongs to the census
   def censed
     return if census_for_user&.birthdate == birthdate
+
     errors.add(:id_document, I18n.t('decidim.census.errors.messages.not_censed'))
   end
 
   def unique_id
     return unless census_for_user
+
     Digest::SHA256.hexdigest(
       "#{census_for_user.id_document}-#{Rails.application.secrets.secret_key_base}"
     )

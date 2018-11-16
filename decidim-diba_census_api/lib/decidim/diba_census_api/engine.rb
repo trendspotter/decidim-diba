@@ -17,6 +17,9 @@ module Decidim
         ) do |auth|
           auth.form = 'DibaCensusApiAuthorizationHandler'
           auth.action_authorizer = 'Decidim::AgeActionAuthorization::Authorizer'
+          auth.options do |options|
+            options.attribute :age, type: :string, required: false
+          end
         end
       end
 

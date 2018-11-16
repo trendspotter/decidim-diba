@@ -21,7 +21,7 @@ class DibaCensusApi
   CensusApiData = Struct.new(:document_type, :id_document, :birthdate)
   URL = ENV.fetch('DIBA_CENSUS_API_URL') { 'http://accede-pre.diba.cat/services/Ci' }
 
-  def initialize(username: 'Decidim', password:, ine: '998')
+  def initialize(username: 'Decidim', password: '', ine: '998')
     @ine = ine
     @username = username
     @password = Digest::SHA1.base64digest(password)
@@ -33,6 +33,7 @@ class DibaCensusApi
     response = parse_response(send_request(request))
     encoded_date = extract_encoded_birth_date(response)
     return unless encoded_date.present? && active?(response)
+
     CensusApiData.new(document_type, id_document, decode_date(encoded_date))
   end
 

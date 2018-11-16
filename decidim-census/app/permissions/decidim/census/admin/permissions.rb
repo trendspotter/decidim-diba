@@ -10,8 +10,7 @@ module Decidim
           return permission_action if permission_action.scope != :admin
           return permission_action if permission_action.subject != :census
 
-          allow! if permission_action.action == :create
-          allow! if permission_action.action == :destroy
+          allow! if user.admin?
 
           permission_action
         end
