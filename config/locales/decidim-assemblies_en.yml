@@ -1,0 +1,163 @@
+en:
+  activemodel:
+    attributes:
+      assembly:
+        assembly_type: Participatory committee type
+        assembly_type_other: Participatory committee type other
+        parent_id: Parent Participatory committee
+        participatory_processes_ids: Related Participatory processes
+  activerecord:
+    models:
+      decidim/assembly:
+        one: Participatory committee
+        other: Participatory committees
+      decidim/assembly_member:
+        one: Participatory committee member
+        other: Participatory committee members
+      decidim/assembly_user_role:
+        one: Participatory committee user role
+        other: Participatory committee user roles
+  decidim:
+    admin:
+      actions:
+        new_assembly: New Participatory committee
+      assemblies:
+        create:
+          error: There was an error creating a new participatory committee.
+          success: Participatory committee created successfully.
+        new:
+          title: New Participatory committee
+        update:
+          error: There was an error when updating this participatory committee.
+          success: Participatory committee updated successfully.
+      assemblies_copies:
+        create:
+          error: There was an error when duplicating this participatory committee.
+          success: Participatory committee duplicated successfully.
+      assembly_members:
+        create:
+          error: There was an error adding a member for this participatory committee.
+          success: Member created successfully for this participatory committee.
+        destroy:
+          success: Member deleted successfully for this participatory committee.
+        edit:
+          title: Update participatory committee member.
+        index:
+          assembly_members_title: Participatory committee members
+        new:
+          title: New participatory committee member.
+        update:
+          error: There was an error updating the member for this participatory committee.
+          success: Member updated successfully for this participatory committee.
+      assembly_publications:
+        create:
+          error: There was an error publishing this participatory committee.
+          success: Participatory committee published successfully.
+        destroy:
+          error: There was an error unpublishing this Participatory committee.
+          success: Participatory committee unpublished successfully.
+      assembly_user_roles:
+        create:
+          error: There was an error adding a user for this participatory committee.
+          success: User added successfully to this participatory committee.
+        destroy:
+          success: User removed successfully from this participatory committee.
+        edit:
+          title: Update participatory committee user.
+        index:
+          assembly_admins_title: Participatory committee users
+        new:
+          title: New participatory committee user.
+        update:
+          error: There was an error updated a user for this participatory committee.
+          success: User updated successfully for this Participatory committee.
+      menu:
+        assemblies: Participatory committees
+        assemblies_submenu:
+          assembly_admins: Participatory committee users
+      models:
+        assembly:
+          name: Participatory committee
+        assembly_user_role:
+          name: Participatory committee User
+      titles:
+        assemblies: Participatory committees
+    admin_log:
+      assembly:
+        create: "%{user_name} created the %{resource_name} participatory committee"
+        publish: "%{user_name} published the %{resource_name} participatory committee"
+        unpublish: "%{user_name} unpublished the %{resource_name} participatory committee"
+        update: "%{user_name} updated the %{resource_name} participatory committee"
+      assembly_member:
+        create: "%{user_name} created the %{resource_name} member in the %{space_name} participatory committee"
+        delete: "%{user_name} removed the %{resource_name} member from the %{space_name} participatory committee"
+        update: "%{user_name} updated the %{resource_name} member in the %{space_name} participatory committee"
+      assembly_user_role:
+        create: "%{user_name} invited %{resource_name} to the %{space_name} participatory committee"
+        delete: "%{user_name} removed the user %{resource_name} from the %{space_name} participatory committee"
+        update: "%{user_name} changed the role of %{resource_name} in the %{space_name} participatory committee"
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            duration_help: If the duration of this participatory committee is limited, select the end date. Otherwise, it will appear as indefinite.
+            included_at_help: Select the date when this participatory committee was added to Decidim. It does not necessarily have to be the same as the creation date.
+            select_an_assembly_type: Select an participatory committee type
+            select_parent_assembly: Select parent participatory committee
+            slug_help: 'URL slugs are used to generate the URLs that point to this participatory committee. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+        assembly_copies:
+          form:
+            slug_help: 'URL slugs are used to generate the URLs that point to this participatory committee. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+      content_blocks:
+        highlighted_assemblies:
+          name: Highlighted Participatory committees
+      filter:
+        all: All types of Participatory committees
+      index:
+        title: Participatory committees
+      last_activity:
+        new_assembly: New participatory committee
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Active Participatory committees
+            see_all_assemblies: See all Participatory committees
+      show:
+        area: Area
+        assembly_type: Participatory committee type
+        children: Participatory committees
+        participatory_scope: What is decided
+        participatory_structure: How is it decided
+        private_space: This is a private Participatory committee
+        related_participatory_processes: Related participatory processes
+      statistics:
+        assemblies_count: Participatory committees
+    help:
+      participatory_spaces:
+        assemblies:
+          contextual: "<p>An participatory committee is a group of members of an organization who meet periodically to make decisions about a specific area or scope of the organization.</p> <p>Participatory committees hold meetings, some are private and some are open. If they are open, it is possible to participate in them (for example: attending if the capacity allows it, adding points to the agenda, or commenting on the proposals and decisions taken by this organ).</p> <p>Examples: A general participatory committee (which meets once a year to define the organisation's main lines of action as well as its executive bodies by vote), an equality advisory council (which meets every two months to make proposals on how to improve gender relations in the organisation), an evaluation commission (which meets every month to monitor a process) or a guarantee body (which collects incidents, abuses or proposals to improve decision-making procedures) are all examples of participatory committees.</p>\n"
+          page: "<p>An participatory committee is a group of members of an organization who meet periodically to make decisions about a specific area or scope of the organization.</p> <p>Participatory committees hold meetings, some are private and some are open. If they are open, it is possible to participate in them (for example: attending if the capacity allows it, adding points to the agenda, or commenting on the proposals and decisions taken by this organ).</p> <p>Examples: A general participatory committee (which meets once a year to define the organisation's main lines of action as well as its executive bodies by vote), an equality advisory council (which meets every two months to make proposals on how to improve gender relations in the organisation), an evaluation commission (which meets every month to monitor a process) or a guarantee body (which collects incidents, abuses or proposals to improve decision-making procedures) are all examples of participatory committees.</p>\n"
+          title: What are participatory committees?
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'The participatory committee was not found on the database (ID: %{id})'
+    menu:
+      assemblies: Participatory committees
+    metrics:
+      assemblies:
+        description: Number of participatory committees created
+        object: Participatory committees
+        title: Participatory committees
+
+  layouts:
+    decidim:
+      assemblies:
+        index:
+          promoted_assemblies: Highlighted participatory committees
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} Participatory committees"
+            other: "%{count} Participatory committees"
+      assembly_navigation:
+        assembly_menu_item: The participatory committee
