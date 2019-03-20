@@ -149,7 +149,6 @@ en:
         description: Number of participatory committees created
         object: Participatory committees
         title: Participatory committees
-
   layouts:
     decidim:
       assemblies:
@@ -159,5 +158,5 @@ en:
           assemblies:
             one: "%{count} Participatory committees"
             other: "%{count} Participatory committees"
-      assembly_navigation:
+      assembly_header:
         assembly_menu_item: The participatory committee
