@@ -10,6 +10,10 @@ migrations (if any)
 * `bin/rails decidim:upgrade`
 * `bin/rails db:migrate`
 
+There are some customizations that have been done to the platform. During an upgrade
+all the files that have been overridden need to be checked to ensure compatibility.
+[docs/overrides.md](docs/overrides.md) lists all these modifications.
+
 ## Development
 
 **Requeriments (MacOS)**
