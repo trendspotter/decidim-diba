@@ -1,6 +1,6 @@
 # Decidim::Ldap
 
-A decidim package to provice user authentication via LDAP. Once is active for an organization,
+A decidim package to provide user authentication via LDAP. Once is active for an organization,
 it is imposible to signup.
 
 The plugin adds a new tab in the Decidim System admin panel that allows to create LDAP configurations
