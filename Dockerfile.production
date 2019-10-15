@@ -1,5 +1,5 @@
 FROM phusion/passenger-ruby25:0.9.35
-MAINTAINER MarsBased "hola@marsbased.com"
+MAINTAINER CodiTramuntana "info@coditramuntana.com"
 
 ENV HOME /home/app/decidim-diba
 
@@ -8,6 +8,10 @@ RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
+
+# Force Madrid's timezone
+ENV TZ=Europe/Madrid
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Install software dependencies
 RUN apt-get update
