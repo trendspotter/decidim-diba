@@ -147,6 +147,18 @@ GIT
       decidim-core (= 0.18.1)
     decidim-generators (0.18.1)
       decidim-core (= 0.18.1)
+    decidim-initiatives (0.18.1)
+      decidim-admin (= 0.18.1)
+      decidim-comments (= 0.18.1)
+      decidim-core (= 0.18.1)
+      decidim-verifications (= 0.18.1)
+      kaminari (~> 1.0)
+      origami
+      social-share-button (~> 1.0)
+      virtus-multiparams
+      wicked (~> 1.3)
+      wicked_pdf
+      wkhtmltopdf-binary
     decidim-meetings (0.18.1)
       cells-erb (~> 0.1.0)
       cells-rails (~> 0.0.9)
@@ -343,6 +355,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
+    colorize (0.8.1)
     concurrent-ruby (1.1.5)
     connection_pool (2.2.2)
     coolline (0.5.0)
@@ -586,6 +599,8 @@ GEM
       omniauth-oauth (~> 1.1)
       rack
     open4 (1.3.4)
+    origami (2.1.0)
+      colorize (~> 0.7)
     orm_adapter (0.5.0)
     paper_trail (9.2.0)
       activerecord (>= 4.2, < 5.3)
@@ -871,8 +886,13 @@ GEM
     websocket-driver (0.7.1-java)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.4)
+    wicked (1.3.4)
+      railties (>= 3.0.7)
+    wicked_pdf (1.4.0)
+      activesupport
     wisper (2.0.1)
     wisper-rspec (1.1.0)
+    wkhtmltopdf-binary (0.12.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
 
@@ -891,6 +911,7 @@ DEPENDENCIES
   decidim-consultations
   decidim-dev!
   decidim-diba_census_api!
+  decidim-initiatives
   decidim-ldap!
   dotenv-rails
   factory_bot_rails
@@ -910,10 +931,12 @@ DEPENDENCIES
   spring
   spring-commands-rspec
   spring-watcher-listen (~> 2.0.0)
+  sprockets (~> 3.7, < 4)
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console
   webmock
+  wicked_pdf
 
 RUBY VERSION
    ruby 2.5.1p57
