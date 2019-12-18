@@ -4,7 +4,7 @@ ruby '2.5.1'
 
 gem 'rails', '=5.2.2'
 
-DECIDIM_VERSION = { git: 'https://github.com/decidim/decidim.git', branch: '0.18-stable' }
+DECIDIM_VERSION = { git: 'https://github.com/decidim/decidim.git', branch: '0.19-stable' }
 
 gem 'decidim', DECIDIM_VERSION
 gem 'decidim-age_action_authorization', path: 'decidim-age_action_authorization'
@@ -19,7 +19,7 @@ gem "sprockets", "~> 3.7", "< 4"
 # Compability with decidim initiatives module
 gem 'wicked_pdf'
 gem 'letter_opener_web'
-gem 'puma', '~> 3.10'
+gem 'puma', '>= 3.12.2'
 gem 'sidekiq'
 gem 'sidekiq-cron'
 gem 'tzinfo-data', platforms: %i(mingw mswin x64_mingw jruby)
