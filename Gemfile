@@ -20,9 +20,8 @@ gem "sprockets", "~> 3.7", "< 4"
 gem 'wicked_pdf'
 gem 'letter_opener_web'
 gem 'puma', '>= 3.12.2'
-gem 'sidekiq'
+gem 'sidekiq', '~> 5.2.7'
 gem 'sidekiq-cron'
-gem 'tzinfo-data', platforms: %i(mingw mswin x64_mingw jruby)
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
