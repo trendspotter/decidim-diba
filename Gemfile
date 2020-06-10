@@ -17,7 +17,7 @@ gem 'decidim-ldap', path: 'decidim-ldap'
 
 # Lock sprockets until decidim supports version 4.
 gem "sprockets", "~> 3.7", "< 4"
-# Compability with decidim initiatives module
+# Compatibility with decidim initiatives module
 gem 'wicked_pdf'
 gem 'letter_opener_web'
 gem 'puma', '>= 3.12.2'
