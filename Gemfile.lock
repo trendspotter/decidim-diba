@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/CodiTramuntana/decidim-module-term_customizer
+  revision: c4ed0ffa87bd9977c6b470aa815d5dc2ed9f88a5
+  specs:
+    decidim-term_customizer (0.18.0)
+      decidim-admin (>= 0.18.0)
+      decidim-core (>= 0.18.0)
+
+GIT
   remote: https://github.com/CodiTramuntana/decidim.git
   revision: eb09ddbe19ccfadf44ca8a5672339e5ab4216d6b
   branch: diba_0.19-stable
@@ -912,6 +920,7 @@ DEPENDENCIES
   decidim-diba_census_api!
   decidim-initiatives
   decidim-ldap!
+  decidim-term_customizer!
   dotenv-rails
   factory_bot_rails
   faker

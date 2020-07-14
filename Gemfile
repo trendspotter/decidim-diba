@@ -15,6 +15,8 @@ gem 'decidim-diba_census_api', path: 'decidim-diba_census_api'
 gem 'decidim-initiatives'
 gem 'decidim-ldap', path: 'decidim-ldap'
 
+gem 'decidim-term_customizer', git: 'https://github.com/CodiTramuntana/decidim-module-term_customizer'
+
 # Lock sprockets until decidim supports version 4.
 gem "sprockets", "~> 3.7", "< 4"
 # Compatibility with decidim initiatives module
