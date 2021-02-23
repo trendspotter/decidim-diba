@@ -50,7 +50,7 @@ ADD docker/rails-env.conf /etc/nginx/main.d/rails-env.conf
 # Add the Rails app
 ADD . /home/app/decidim-diba
 
-RUN RAILS_ENV=production SECRET_KEY_BASE=NOT-IMPORTANT bin/rake assets:precompile
+RUN RAILS_ENV=production SECRET_KEY_BASE=NOT-IMPORTANT DOCKER=1 bin/rake assets:precompile
 
 # Add a tmp folder for pids
 RUN mkdir -p tmp/pids
