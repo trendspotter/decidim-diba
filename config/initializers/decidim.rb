@@ -7,6 +7,9 @@ Decidim.configure do |config|
   config.mailer_sender    = 'decidim@diba.cat'
   config.sms_gateway_service = 'Decidim::Verifications::Sms::SmsGateway'
 
+  # Whether SSL should be enabled or not.
+  config.force_ssl = false
+
   # Reset default workflows
   Decidim::Verifications.clear_workflows
 
