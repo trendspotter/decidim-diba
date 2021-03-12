@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_16_081464) do
+ActiveRecord::Schema.define(version: 2021_03_12_132210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "ltree"
@@ -170,6 +170,7 @@ ActiveRecord::Schema.define(version: 2021_02_16_081464) do
     t.string "youtube_handler"
     t.string "github_handler"
     t.bigint "decidim_assemblies_type_id"
+    t.integer "weight", default: 1, null: false
     t.index ["decidim_area_id"], name: "index_decidim_assemblies_on_decidim_area_id"
     t.index ["decidim_assemblies_type_id"], name: "index_decidim_assemblies_on_decidim_assemblies_type_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_assembly_slug_and_organization", unique: true
@@ -823,7 +824,6 @@ ActiveRecord::Schema.define(version: 2021_02_16_081464) do
     t.integer "decidim_scope_id"
     t.index ["decidim_author_id"], name: "index_decidim_initiatives_votes_on_decidim_author_id"
     t.index ["decidim_initiative_id"], name: "index_decidim_initiatives_votes_on_decidim_initiative_id"
-    t.index ["decidim_user_group_id"], name: "index_decidim_initiatives_votes_on_decidim_user_group_id"
     t.index ["hash_id"], name: "index_decidim_initiatives_votes_on_hash_id"
   end
 
@@ -1185,6 +1185,7 @@ ActiveRecord::Schema.define(version: 2021_02_16_081464) do
     t.bigint "decidim_area_id"
     t.bigint "decidim_scope_type_id"
     t.boolean "show_metrics", default: true
+    t.integer "weight", default: 1, null: false
     t.index ["decidim_area_id"], name: "index_decidim_participatory_processes_on_decidim_area_id"
     t.index ["decidim_organization_id", "slug"], name: "index_unique_process_slug_and_organization", unique: true
     t.index ["decidim_organization_id"], name: "index_decidim_processes_on_decidim_organization_id"
