@@ -6,14 +6,14 @@ en:
         id_document: Identity document
         birthdate: Date of birth
     errors:
-        models:
-          user:
-            attributes:
-              email:
-                taken: invalid email
+      models:
+        user:
+          attributes:
+            email:
+              taken: Invalid email
   errors:
     messages:
-      not_found: invalid email
+      not_found: Invalid email
   decidim:
     verifications:
       authorizations:

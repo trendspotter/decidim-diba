@@ -10,10 +10,10 @@ es:
         user:
           attributes:
             email:
-              taken: email inválido
+              taken: Email inválido
   errors:
     messages:
-      not_found: email inválido
+      not_found: Email inválido
   decidim:
     verifications:
       authorizations:

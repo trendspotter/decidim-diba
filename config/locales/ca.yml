@@ -10,7 +10,10 @@ ca:
         user:
           attributes:
             email:
-              taken: email invàlid
+              taken: Email invàlid
+  errors:
+    messages:
+      not_found: Email invàlid
   decidim:
     verifications:
       authorizations:
