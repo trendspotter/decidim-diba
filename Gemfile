@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = { git: 'https://github.com/CodiTramuntana/decidim.git', branch: 'port/to_0_23/fix/active_participatory_processes_scope' }
+DECIDIM_VERSION = { git: 'https://github.com/CodiTramuntana/decidim.git', branch: 'release/0.23-stable' }
 
 gem 'rails', '< 6.0.0'
 gem 'decidim', DECIDIM_VERSION
