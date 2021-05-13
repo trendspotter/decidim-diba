@@ -5,6 +5,10 @@ require 'extensions/workflow_manifest_extension'
 Decidim.configure do |config|
   config.application_name = 'Decidim DIBA'
   config.mailer_sender    = 'decidim@diba.cat'
+  config.sms_gateway_service = 'Decidim::Verifications::Sms::SmsGateway'
+
+  # Whether SSL should be enabled or not.
+  config.force_ssl = false
 
   # Reset default workflows
   Decidim::Verifications.clear_workflows
@@ -24,13 +28,13 @@ Decidim.configure do |config|
   config.available_locales = %i(ca es en)
 
   # Geocoder configuration
-  geocoder_config = Rails.application.secrets.geocoder
-  if geocoder_config[:here_app_id].present? && geocoder_config[:here_app_code].present?
-    config.geocoder = {
-      here_app_id: geocoder_config[:here_app_id],
-      here_app_code: geocoder_config[:here_app_code]
-    }
-  end
+  # geocoder_config = Rails.application.secrets.geocoder
+  # if geocoder_config[:here_app_id].present? && geocoder_config[:here_app_code].present?
+  #   config.maps = {
+  #     here_app_id: geocoder_config[:here_app_id],
+  #     here_app_code: geocoder_config[:here_app_code]
+  #   }
+  # end
 end
 
 Decidim::Ldap.configure do |config|

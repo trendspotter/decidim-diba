@@ -1,19 +1,19 @@
 source 'https://rubygems.org'
 
-ruby '2.5.1'
+ruby RUBY_VERSION
 
-gem 'rails', '=5.2.2'
+DECIDIM_VERSION = { git: 'https://github.com/CodiTramuntana/decidim.git', branch: 'port/to_0_23/fix/active_participatory_processes_scope' }
 
-# Change repository to decidim/decidim, change branch name and remove this comment when updating to 0.20
-DECIDIM_VERSION = { git: 'https://github.com/CodiTramuntana/decidim.git', branch: 'diba_0.19-stable' }
-
+gem 'rails', '< 6.0.0'
 gem 'decidim', DECIDIM_VERSION
+gem 'decidim-consultations', DECIDIM_VERSION
+gem 'decidim-initiatives', DECIDIM_VERSION
 gem 'decidim-age_action_authorization', path: 'decidim-age_action_authorization'
 gem 'decidim-census', path: 'decidim-census'
-gem 'decidim-consultations'
 gem 'decidim-diba_census_api', path: 'decidim-diba_census_api'
-gem 'decidim-initiatives'
 gem 'decidim-ldap', path: 'decidim-ldap'
+
+gem 'decidim-term_customizer', git: 'https://github.com/CodiTramuntana/decidim-module-term_customizer'
 
 # Lock sprockets until decidim supports version 4.
 gem "sprockets", "~> 3.7", "< 4"
@@ -24,6 +24,7 @@ gem 'puma', '>= 3.12.2'
 gem 'sidekiq', '~> 5.2.7'
 gem 'sidekiq-cron'
 gem 'uglifier', '>= 1.3.0'
+gem 'deface'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -33,7 +34,7 @@ group :development, :test do
   gem 'faker'
   gem 'ladle'
   gem 'pry-byebug'
-  gem 'pry-coolline'
+  # gem 'pry-coolline'
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.7.0'
   gem 'rubocop', require: false
