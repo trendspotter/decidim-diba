@@ -1,6 +1,6 @@
 namespace :census_api do
   desc 'Checks the given credentials against the census_api: [:document_type, :id_document, :birthdate]'
-  task :check, [:org_id, :document_type, :id_document, :birthdate] => environment do |_task, args|
+  task :check, [:org_id, :document_type, :id_document, :birthdate] => :environment do |_task, args|
     organization= Decidim::Organization.find(args.org_id)
     document_type= args.document_type
     id_document= args.id_document
