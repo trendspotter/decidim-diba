@@ -9,7 +9,7 @@ namespace :census_api do
     birthdate= Time.strptime(args.birthdate, "%Y/%m/%d")
 
     service= DibaCensusApiRq.new(api_config(organization))
-    rs= service.send(
+    rs= service.send_rq(
       birthdate: birthdate,
       document_type: document_type_code(document_type),
       id_document: id_document

@@ -5,7 +5,7 @@ require "faraday"
 require "base64"
 
 #
-# Performs a request to the Diputacio of Barcelona census API to VALIDATE a birth of date of a person
+# Performs a request to the Diputacio of Barcelona census API to VALIDATE a person by document and birth date.
 #
 # To send a request you MUST provide:
 # - document_type:
@@ -13,29 +13,29 @@ require "base64"
 # - birthdate: a Date object with the date of birth
 #
 # EXAMPLE:
-# rq = DibaCensusApiRq.new(password: 'password', public_key: 'key')
-# raw_response= rq.send(document_type: 1,
+# rq = DibaCensusApiRq.new(ine: 'ine', username: 'username', password: 'password')
+# raw_response= rq.send_rq(document_type: 1,
 #          id_document: '58958982T',
 #          birthdate: Date.parse('1991-05-05'))
 class DibaCensusApiRq
-  CensusApiData = Struct.new(:document_type, :id_document, :birthdate)
   URL = ENV.fetch("DIBA_CENSUS_API_URL") { "http://accede-pre.diba.cat/services/Ci" }
 
   def initialize(username: "Decidim", password: "", ine: "998")
     @ine = ine
     @username = username
-    @password = Digest::SHA1.base64digest(password)
+    @encoded_password = Digest::SHA1.base64digest(password)
     @public_key = ENV.fetch("DIBA_CENSUS_API_PUBLIC_KEY") { "public_key" }
   end
 
-  def send(document_type:, id_document:, birthdate:)
-    request = CensusApiData.new(document_type, id_document, birthdate)
-    send_request(request)
+  def send_rq(document_type:, id_document:, birthdate:)
+    request = ::DibaCensusApi::CensusApiData.new(document_type, id_document, birthdate)
+    send_soap_request(request)
   end
 
   private
 
-  def send_request(request)
+  # Wraps the request in a SOAP envelope and sends it.
+  def send_soap_request(request)
     Faraday.post URL do |http_request|
       http_request.headers["Content-Type"] = "text/xml"
       http_request.headers["SOAPAction"] = "servicio"
@@ -78,7 +78,7 @@ class DibaCensusApiRq
           <org>0</org>
           <ent>#{@ine}</ent>
           <usu>#{@username}</usu>
-          <pwd>#{@password}</pwd>
+          <pwd>#{@encoded_password}</pwd>
           <fecha>#{fecha}</fecha>
           <nonce>#{nonce}</nonce>
           <token>#{token}</token>
@@ -110,11 +110,6 @@ class DibaCensusApiRq
   # Encode only date into an API timestamp format
   def encode_date(date)
     "#{date.strftime("%Y%m%d")}000000"
-  end
-
-  # Decode a date from an API timestamp format
-  def decode_date(date)
-    Date.strptime(date, "%Y%m%d%H%M%S")
   end
 
   def big_random
