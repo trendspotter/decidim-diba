@@ -11,6 +11,14 @@ namespace :census_api do
     id_document= args.id_document
     birthdate= Time.strptime(args.birthdate, "%Y/%m/%d")
 
+    puts <<EOF
+Performing request with parameters:
+birthdate: #{birthdate}
+document_type: #{document_type_code(document_type)}
+id_document: #{id_document}
+EOF
+
+    puts "\nRESPONSE:"
     service= DibaCensusApiRq.new(api_config(organization))
     rs= service.send_rq(
       birthdate: birthdate,
@@ -22,7 +30,7 @@ namespace :census_api do
   end
 
   def document_type_code(document_type)
-    case document_type&.to_sym
+    case document_type&.downcase&.to_sym
     when :dni
       "01"
     when :passport

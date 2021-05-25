@@ -17,7 +17,7 @@ RSpec.describe DibaCensusApi do
   let(:stubbed_response) { success_response }
 
   context "with participant's data" do
-    let(:situacion_habitante) { "QQ" }
+    let(:situacion_habitante) { "QQ==" }
     let(:rs_birthdate) { "20000101000000" }
 
     before do
