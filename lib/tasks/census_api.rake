@@ -4,7 +4,7 @@
 # A set of utils to manage and validate verification related data.
 #
 namespace :census_api do
-  desc "Checks the given credentials against the census_api: [:document_type, :id_document, :birthdate]"
+  desc "Checks the given credentials against the census_api (document_type dni/nie/passport, birthdate yyyy/mm/dd)"
   task :check, [:org_id, :document_type, :id_document, :birthdate] => :environment do |_task, args|
     organization= Decidim::Organization.find(args.org_id)
     document_type= args.document_type
