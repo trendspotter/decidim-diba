@@ -4,7 +4,7 @@
 # A set of utils to manage DiBa organizations.
 #
 namespace :diba do
-  desc "Finds information about the Organization or Organizations searching by the :host_term argument. Set :full (second param) to true for full information"
+  desc "Finds information about the Organization, or Organizations, searching by the :host_term argument. Set :full (second param) to true for full information"
   task :org_by_host_like, [:host_term, :full] => :environment do |_task, args|
     query = Decidim::Organization.where("host ilike ?", "%#{args.host_term}%")
     puts "Found #{query.count} organizations"
