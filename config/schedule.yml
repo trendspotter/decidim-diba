@@ -4,3 +4,6 @@ decidim_open_data_export:
 decidim_metrics_all:
   cron: '0 2 * * * Europe/Madrid'
   class: 'Metrics'
+decidim_initiatives:
+  cron: '0 3 * * * Europe/Madrid'
+  class: 'DecidimInitiatives'
