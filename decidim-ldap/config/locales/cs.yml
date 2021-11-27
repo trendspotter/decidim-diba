@@ -1,0 +1,58 @@
+cs:
+  activerecord:
+    models:
+      decidim:
+        ldap_configuration: 'LDAP konfigurace'
+    attributes:
+      decidim/ldap_configuration:
+        host: 'Host'
+        port: 'Port'
+        dn: 'Základní doménové jméno'
+        authentication_query: 'Authentifikační query'
+        username_field: 'Uživatelské jméno'
+        email_field: 'E-mail'
+        name_field: 'Jméno'
+        password_field: 'Heslo'
+        organization: 'Organizace'
+  devise:
+    failure:
+      user:
+        ldap_invalid: Neplatné jméno nebo heslo
+  decidim:
+    ldap:
+      menu:
+        ldap: 'LDAP'
+      models:
+        ldap_configuration:
+          fields:
+            created_at: 'Vytvořeno na'
+            name: 'Organizace / název domény'
+          name: 'LDAP konfigurace'
+      ldap_configurations:
+        index:
+          title: 'LDAP'
+        new:
+          title: 'Nový LDAP'
+          create: 'Vytvořit'
+        edit:
+          title: 'Upravit LDAP'
+          update: 'Aktualizovat'
+        create:
+          error: 'Při vytváření nové konfigurace LDAP došlo k chybě.'
+          success: 'Konfigurace LDAP byla úspěšně vytvořena.'
+        destroy:
+          success: 'Konfigurace LDAP byla úspěšně zničena.'
+        update:
+          error: 'Při aktualizaci této konfigurace LDAP došlo k chybě.'
+          success: 'Konfigurace LDAP byla úspěšně aktualizována.'
+        form:
+          host: 'Hostitel'
+          port: 'Port'
+          dn: 'Základní doménové jméno'
+          authentication_query: 'Authentifikační query'
+          username_field: 'Uživatelské jméno'
+          email_field: 'E-mail'
+          name_field: 'Jméno'
+          password_field: 'Heslo'
+          organization: 'Organizace'
+
